@@ -4,13 +4,13 @@ header:
 repos:
   meta-freescale:
     url: https://github.com/Freescale/meta-freescale.git
-    branch: scarthgap
+    branch: a7bf57d45cdd908155b4179845aa9d1d78095bc0
   meta-freescale-3rdparty:
     url: https://github.com/Freescale/meta-freescale-3rdparty.git
-    branch: scarthgap
+    branch: 2602df3c730d970b8a4aa685b9f43d7ccd2c5d0f
   meta-freescale-distro:
     url: https://github.com/Freescale/meta-freescale-distro.git
-    branch: scarthgap
+    branch: b9d6a5d9931922558046d230c1f5f4ef6ee72345
 
   meta-mender-community:
     layers:
