@@ -6,7 +6,7 @@ distro: poky
 repos:
   poky:
     url: git://git.yoctoproject.org/poky
-    commit: 3198afac8770abf3f9c4582aecb6bac2ab291718
+    commit: dce4163d42f7036ea216b52b9135968d51bec4c1
     layers:
       meta:
       meta-poky:
@@ -20,7 +20,7 @@ repos:
 
   meta-mender:
     url: https://github.com/mendersoftware/meta-mender.git
-    commit: 3936f62f69fa6e9f03404e962549ae5cad0091cc
+    commit: 61b6f2298bad965cf6be41ebf11e62e4c314512f
     layers:
       meta-mender-core:
 
