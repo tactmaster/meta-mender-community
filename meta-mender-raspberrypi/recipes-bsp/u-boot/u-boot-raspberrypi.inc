@@ -6,6 +6,8 @@ BOOTENV_SIZE:rpi ?= "0x4000"
 # use of boot.scr and cmdline.txt.
 MENDER_UBOOT_AUTO_CONFIGURE:rpi = "0"
 
+SRC_URI:append:rpi = " file://memory_size.cfg"
+
 SRC_URI:append:rpi:mender-uboot = "${@bb.utils.contains('MENDER_UBOOT_AUTO_CONFIGURE', \
                                                         '1', \
                                                         '', \
