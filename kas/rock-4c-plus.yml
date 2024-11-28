@@ -15,3 +15,4 @@ local_conf_header:
     MENDER_UBOOT_STORAGE_DEVICE = "1"
     IMAGE_CLASSES += "rockchip-sdimg"
     MENDER_STORAGE_DEVICE = "/dev/mmcblk1"
+    IMAGE_INSTALL:append = " kernel-module-dwmac-rk "
