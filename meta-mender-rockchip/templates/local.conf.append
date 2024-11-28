@@ -1,0 +1,33 @@
+
+# Appended fragment from meta-mender-community/meta-mender-rockchip/templates
+
+MACHINE ?= "rock-4c-plus"
+
+# This example uses the mmc not the emmc
+MENDER_UBOOT_STORAGE_INTERFACE = "mmc"
+MENDER_UBOOT_STORAGE_DEVICE = "1"
+
+# The mmc device is block device 1 (mmcblk1)  
+# this need to be set or doesn't root on mmc - Tested
+# https://wiki.radxa.com/Rockpi4/install/eMMC states eMMC is  /dev/mmcblk0
+
+MENDER_STORAGE_DEVICE = "/dev/mmcblk1"
+
+MENDER_FEATURES_ENABLE:append = " mender-uboot mender-image-sd"
+MENDER_FEATURES_DISABLE:append = " mender-grub mender-image-uefi"
+
+
+# remove unneeded types
+IMAGE_FSTYPES:remove = "wic wic.bmap mender.bmap"
+
+
+# and add the needed one 
+# if it doesn't have this it doesn't load uboot
+IMAGE_CLASSES += "rockchip-sdimg"
+
+# we must shift ENV_OFFSET and default one conflict with u-boot
+# move to 10M instead of default 8M
+# if it doesn't have this can't find the root partiton
+MENDER_PARTITION_ALIGNMENT = "10485760"
+
+IMAGE_INSTALL:append = " kernel-module-dwmac-rk "
