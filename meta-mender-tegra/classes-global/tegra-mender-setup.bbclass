@@ -123,7 +123,10 @@ def tegra_mender_calc_total_size(d):
         else:
             bb.error('TEGRAFLASH_SDCARD_SIZE does not end with G, K, or M')
     else:
-        total_size_bytes = int(d.getVar('EMMC_SIZE'))
+        emmc_size = d.getVar('EMMC_SIZE')
+        if not emmc_size:
+            bb.fatal('neither EMMC_SIZE nor TEGRA_SPIFLASH_BOOT configured, aborting')
+        total_size_bytes = int(emmc_size)
     # Mender uses mibibytes, not megabytes
     return total_size_bytes // (1024*1024) - int(d.getVar('TEGRA_MENDER_RESERVED_SPACE_MB'))
 
